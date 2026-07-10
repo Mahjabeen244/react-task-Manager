@@ -1,8 +1,80 @@
 .container {
-  padding: 40px 24px;
+  padding: 40px 32px;
 }
 
 .title {
   font-size: 28px;
   margin-bottom: 24px;
+}
+
+.statsRow {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.statCard {
+  background-color: #1e1f26;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px 24px;
+  flex: 1;
+  min-width: 140px;
+}
+
+.statLabel {
+  font-size: 13px;
+  opacity: 0.7;
+  margin-bottom: 8px;
+}
+
+.statValue {
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.toolsRow {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.searchInput {
+  flex: 1;
+  min-width: 200px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  font-size: 14px;
+}
+
+.filterSelect {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: #1e1f26;
+  color: var(--text);
+  font-size: 14px;
+}
+
+.taskList {
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+  padding: 40px;
+  text-align: center;
+}
+
+.emptyText {
+  opacity: 0.6;
+  font-size: 14px;
+}
+
+@media (max-width: 600px) {
+  .statsRow {
+    flex-direction: column;
+  }
 }

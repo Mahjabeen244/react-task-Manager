@@ -1,9 +1,10 @@
 import styles from "./NotFound.module.css";
+
 function NotFound() {
   return (
-    <div>
-      <h1> error 404 - Page Not Found</h1>
-      <p>The page you are looking for doesn't exist</p>
+    <div className={styles.container}>
+      <h1 className={styles.title}>error 404 - NotFound</h1>
+      <p className={styles.text}>Page not found!</p>
     </div>
   );
 }
