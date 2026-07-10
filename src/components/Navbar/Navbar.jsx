@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import styles from "./Navbarmodule.css";
+import styles from "./Navbar.module.css";
 
 function Navbar() {
   return (
-    <nav className={styles.Navbar}>
+    <nav className={styles.navbar}>
       <div className={styles.logo}>Task Manager</div>
       <ul className={styles.links}>
         <li>
