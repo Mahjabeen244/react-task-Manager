@@ -11,3 +11,20 @@
   font-size: 30px;
   font-weight: 500;
 }
+
+.links {
+  display: flex;
+  list-style: none;
+  gap: 23px;
+  margin: 0;
+  padding: 0;
+}
+.links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.links a:hover {
+  color: #c084fc;
+}
