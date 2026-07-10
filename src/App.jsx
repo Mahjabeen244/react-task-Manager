@@ -1,5 +1,7 @@
+import Navbar from "./components/Navbar/Navbar";
+
 function App() {
-  return <div>{/* Navbar, Routes etc. will go here */}</div>;
+  return <div>{<Navbar />}</div>;
 }
 
 export default App;
