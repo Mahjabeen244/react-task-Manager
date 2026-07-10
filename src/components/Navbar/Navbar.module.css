@@ -28,3 +28,15 @@
 .links a:hover {
   color: #c084fc;
 }
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .links {
+    flex-direction: column;
+    gap: 9px;
+  }
+}
