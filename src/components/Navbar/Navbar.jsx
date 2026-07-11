@@ -9,48 +9,45 @@ function Navbar() {
       <Link to="/" className={styles.logo}>
         Task Manager
       </Link>
-      <ul className={styles.links}>
-        <li>
-          <Link
-            to="/"
-            className={location.pathname === "/" ? styles.active : ""}
-          >
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/dashboard"
-            className={location.pathname === "/dashboard" ? styles.active : ""}
-          >
-            Dashboard
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/about"
-            className={location.pathname === "/about" ? styles.active : ""}
-          >
-            About
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/login"
-            className={location.pathname === "/login" ? styles.active : ""}
-          >
+
+      <div className={styles.menu}>
+        <ul className={styles.pageLinks}>
+          <li>
+            <Link
+              to="/"
+              className={location.pathname === "/" ? styles.active : ""}
+            >
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/dashboard"
+              className={
+                location.pathname === "/dashboard" ? styles.active : ""
+              }
+            >
+              Dashboard
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/about"
+              className={location.pathname === "/about" ? styles.active : ""}
+            >
+              About
+            </Link>
+          </li>
+        </ul>
+        <div className={styles.authLinks}>
+          <Link to="/login" className={styles.loginLink}>
             Login
           </Link>
-        </li>
-        <li>
-          <Link
-            to="/register"
-            className={location.pathname === "/register" ? styles.active : ""}
-          >
+          <Link to="/register" className={styles.registerBtn}>
             Register
           </Link>
-        </li>
-      </ul>
+        </div>
+      </div>
     </nav>
   );
 }
