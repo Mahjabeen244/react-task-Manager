@@ -1,7 +1,7 @@
 .sidebar {
   width: 220px;
-  min-height: calc(100vh - 70px); /* Minus navbar height */
-  background: #16162a; /* Slightly darker than main background */
+  min-height: calc(100vh - 70px);
+  background: #16162a;
   border-right: 1px solid rgba(255, 255, 255, 0.05);
   padding: 30px 15px;
 }
