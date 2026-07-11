@@ -23,6 +23,7 @@ function Dashboard() {
   const [modal, setModal] = useState(false);
   const [editing, setEditing] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(false); // Controls the sidebar!
 
   useEffect(() => {
     setTimeout(() => {
@@ -59,7 +60,6 @@ function Dashboard() {
   };
 
   let visible = [...tasks];
-
   if (search) {
     const q = search.toLowerCase();
     visible = visible.filter(
@@ -90,11 +90,15 @@ function Dashboard() {
     done = tasks.filter((t) => t.status === "completed").length;
 
   return (
-    <div className={s.layout}>
-      <Sidebar />
+    <div className={s.page}>
+      {/* Pass open/close state to Sidebar */}
+      <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
 
       <div className={s.main}>
         <div className={s.head}>
+          <button className={s.menuBtn} onClick={() => setSidebarOpen(true)}>
+            ☰
+          </button>
           <h1>Dashboard</h1>
           <Button variant="primary" onClick={() => setModal(true)}>
             + Add Task
