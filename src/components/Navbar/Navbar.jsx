@@ -9,7 +9,6 @@ function Navbar() {
       <Link to="/" className={styles.logo}>
         Task Manager
       </Link>
-
       <div className={styles.menu}>
         <ul className={styles.pageLinks}>
           <li>
