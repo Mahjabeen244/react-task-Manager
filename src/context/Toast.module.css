@@ -1,0 +1,24 @@
+.toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #252540;
+  color: #ffffff;
+  padding: 14px 24px;
+  border-radius: 10px;
+  border-left: 4px solid #667eea;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  z-index: 9999;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
