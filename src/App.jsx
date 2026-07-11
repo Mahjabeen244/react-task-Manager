@@ -1,5 +1,6 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import { VerificationProvider } from "./context/VerificationContext";
+import { ToastProvider } from "./context/ToastContext"; // <-- ADDED THIS
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import Home from "./pages/Home/Home";
@@ -15,22 +16,24 @@ function App() {
 
   return (
     <VerificationProvider>
-      <div className="app-layout">
-        {!isHome && <Navbar />}
+      <ToastProvider>
+        <div className="app-layout">
+          {!isHome && <Navbar />}
 
-        <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/about" element={<About />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </main>
+          <main>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/about" element={<About />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </main>
 
-        {!isHome && <Footer />}
-      </div>
+          {!isHome && <Footer />}
+        </div>
+      </ToastProvider>
     </VerificationProvider>
   );
 }

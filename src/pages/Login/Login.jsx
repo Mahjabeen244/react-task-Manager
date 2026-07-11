@@ -12,7 +12,7 @@ function Login() {
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
-      alert("Login clicked! (UI only)");
+      alert("Login successfully!!!");
     }, 1000);
   };
 

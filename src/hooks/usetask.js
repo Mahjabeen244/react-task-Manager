@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useToast } from "../context/ToastContext";
 import {
   getTasks,
   addTask,
@@ -9,6 +10,7 @@ import {
 function usetask() {
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { pop } = useToast();
 
   useEffect(() => {
     setTimeout(() => {
@@ -29,6 +31,7 @@ function usetask() {
     if (window.confirm("Delete this task?")) {
       deleteTask(id);
       refresh();
+      pop("Task deleted successfully!");
     }
   };
 
