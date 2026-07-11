@@ -24,6 +24,7 @@ function TaskForm({ task, onSave, onCancel }) {
     e.preventDefault();
     onSave({ ...form, description: form.desc, dueDate: form.date });
   };
+
   return (
     <form onSubmit={submitForm} className={s.form}>
       <div className={s.field}>
@@ -33,8 +34,9 @@ function TaskForm({ task, onSave, onCancel }) {
           onChange={(e) => setForm({ ...form, title: e.target.value })}
           placeholder="What to do?"
           required
-        />{" "}
+        />
       </div>
+
       <div className={s.field}>
         <label>Details</label>
         <textarea
@@ -44,6 +46,7 @@ function TaskForm({ task, onSave, onCancel }) {
           rows="3"
         />
       </div>
+
       <div className={s.splitRow}>
         <div className={s.field}>
           <label>Priority</label>
@@ -66,6 +69,7 @@ function TaskForm({ task, onSave, onCancel }) {
           />
         </div>
       </div>
+
       <div className={s.btnRow}>
         <Button variant="secondary" onClick={onCancel}>
           Cancel
@@ -77,4 +81,5 @@ function TaskForm({ task, onSave, onCancel }) {
     </form>
   );
 }
+
 export default TaskForm;

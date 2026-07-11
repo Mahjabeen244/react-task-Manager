@@ -6,7 +6,7 @@ import {
   deleteTask,
 } from "../services/taskservice";
 
-function useTasks() {
+function usetask() {
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -45,4 +45,4 @@ function useTasks() {
   return { tasks, loading, saveTask, removeTask, toggleTask };
 }
 
-export default useTasks;
+export default usetask;

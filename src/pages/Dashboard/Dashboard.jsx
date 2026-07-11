@@ -1,4 +1,4 @@
-import { useState } from "react"; // Removed useEffect
+import { useState } from "react";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Button from "../../components/Button/Button";
 import SearchBar from "../../components/SearchBar/SearchBar";
@@ -7,11 +7,11 @@ import TaskCard from "../../components/TaskCard/TaskCard";
 import Modal from "../../components/Modal/Modal";
 import TaskForm from "../../components/TaskForm/TaskForm";
 import Loader from "../../components/Loader/Loader";
-import useTasks from "../../hooks/useTasks";
+import usetask from "../../hooks/usetask";
 import s from "./Dashboard.module.css";
 
 function Dashboard() {
-  const { tasks, loading, saveTask, removeTask, toggleTask } = useTasks();
+  const { tasks, loading, saveTask, removeTask, toggleTask } = usetask();
 
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("all");
@@ -19,6 +19,38 @@ function Dashboard() {
   const [modal, setModal] = useState(false);
   const [editing, setEditing] = useState(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const total = tasks.length;
+  const done = tasks.filter((t) => t.status === "completed").length;
+
+  let visible = [...tasks];
+
+  if (search) {
+    const q = search.toLowerCase();
+    visible = visible.filter(
+      (t) =>
+        t.title.toLowerCase().includes(q) ||
+        (t.description && t.description.toLowerCase().includes(q))
+    );
+  }
+
+  const filters = {
+    completed: (t) => t.status === "completed",
+    pending: (t) => t.status === "pending",
+    high: (t) => t.priority === "high",
+    medium: (t) => t.priority === "medium",
+    low: (t) => t.priority === "low",
+  };
+  if (filters[filter]) visible = visible.filter(filters[filter]);
+
+  if (sort === "dueDate")
+    visible.sort(
+      (a, b) => new Date(a.dueDate || "2099") - new Date(b.dueDate || "2099")
+    );
+  else if (sort === "priority") {
+    const p = { high: 0, medium: 1, low: 2 };
+    visible.sort((a, b) => p[a.priority] - p[b.priority]);
+  } else visible.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 
   return (
     <div className={s.page}>
@@ -102,7 +134,7 @@ function Dashboard() {
       >
         <TaskForm
           task={editing}
-          onSave={saveTask}
+          onSave={(data) => saveTask(editing, data)}
           onCancel={() => {
             setModal(false);
             setEditing(null);
