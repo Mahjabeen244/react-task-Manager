@@ -1,11 +1,10 @@
-.layout {
-  display: flex;
+.page {
   min-height: calc(100vh - 70px);
-}
-.main {
-  flex: 1;
-  padding: 30px;
   background: #1a1a2e;
+}
+
+.main {
+  padding: 30px;
   display: flex;
   flex-direction: column;
   gap: 25px;
@@ -13,10 +12,32 @@
 
 .head {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: 20px;
 }
+
+.menuBtn {
+  background: #252540;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #94a3b8;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.menuBtn:hover {
+  color: #fff;
+  background: #2d2d4a;
+}
+
 .head h1 {
+  flex: 1;
   font-size: 28px;
   margin: 0;
   color: #fff;
@@ -74,8 +95,6 @@
     flex-direction: column;
   }
   .head {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
+    flex-wrap: wrap;
   }
 }

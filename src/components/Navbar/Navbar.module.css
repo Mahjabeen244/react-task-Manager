@@ -15,49 +15,19 @@
   font-size: 22px;
   font-weight: 700;
   text-decoration: none;
-  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.menu {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-}
-
-.pageLinks {
-  display: flex;
-  list-style: none;
-  gap: 5px;
-  margin: 0;
-  padding: 0;
-}
-
-.pageLinks a {
-  color: #94a3b8;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
-  padding: 8px 16px;
-  border-radius: 8px;
-  transition: all 0.2s ease;
-}
-
-.pageLinks a:hover {
   color: #ffffff;
-  background-color: rgba(255, 255, 255, 0.05);
+  transition: opacity 0.2s ease;
 }
 
-.active {
-  color: #ffffff !important;
-  background-color: rgba(102, 126, 234, 0.15) !important;
+.logo:hover {
+  opacity: 0.8;
 }
 
 .authLinks {
   display: flex;
   align-items: center;
   gap: 12px;
+  margin-left: auto;
 }
 
 .loginLink {
@@ -91,12 +61,5 @@
 @media (max-width: 768px) {
   .navbar {
     padding: 0 20px;
-  }
-  .menu {
-    gap: 15px;
-  }
-  .pageLinks a {
-    padding: 8px 10px;
-    font-size: 13px;
   }
 }
