@@ -5,7 +5,7 @@ function Home() {
   return (
     <div className={styles.hero}>
       <div className={styles.logo}>
-        <span>T</span>
+        <span>Task Manager</span>
       </div>
 
       <h1 className={styles.title}>Organize Your Work, Effortlessly</h1>
