@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from "react"; // Removed useEffect
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Button from "../../components/Button/Button";
 import SearchBar from "../../components/SearchBar/SearchBar";
@@ -19,4 +19,98 @@ function Dashboard() {
   const [modal, setModal] = useState(false);
   const [editing, setEditing] = useState(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  return (
+    <div className={s.page}>
+      <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+      <div className={s.main}>
+        <div className={s.head}>
+          <button className={s.menuBtn} onClick={() => setSidebarOpen(true)}>
+            ☰
+          </button>
+          <h1>Dashboard</h1>
+          <Button variant="primary" onClick={() => setModal(true)}>
+            + Add Task
+          </Button>
+        </div>
+
+        {loading ? (
+          <Loader />
+        ) : (
+          <>
+            <div className={s.stats}>
+              <div className={s.stat}>
+                <span>Total</span>
+                <b>{total}</b>
+              </div>
+              <div className={s.stat}>
+                <span>Done</span>
+                <b>{done}</b>
+              </div>
+              <div className={s.stat}>
+                <span>Pending</span>
+                <b>{total - done}</b>
+              </div>
+            </div>
+
+            <SearchBar value={search} onChange={setSearch} />
+            <FilterBar
+              activeFilter={filter}
+              onFilterChange={setFilter}
+              sortBy={sort}
+              onSortChange={setSort}
+            />
+
+            <div className={s.list}>
+              {visible.length === 0 ? (
+                <div className={s.empty}>
+                  <h3>
+                    {search || filter !== "all"
+                      ? "No matches found"
+                      : "No tasks yet"}
+                  </h3>
+                  {!search && filter === "all" && (
+                    <p>Click '+ Add Task' to start</p>
+                  )}
+                </div>
+              ) : (
+                visible.map((t) => (
+                  <TaskCard
+                    key={t.id}
+                    task={t}
+                    onToggleComplete={toggleTask}
+                    onEdit={() => {
+                      setEditing(t);
+                      setModal(true);
+                    }}
+                    onDelete={removeTask}
+                  />
+                ))
+              )}
+            </div>
+          </>
+        )}
+      </div>
+
+      <Modal
+        isOpen={modal}
+        onClose={() => {
+          setModal(false);
+          setEditing(null);
+        }}
+        title={editing ? "Edit Task" : "New Task"}
+      >
+        <TaskForm
+          task={editing}
+          onSave={saveTask}
+          onCancel={() => {
+            setModal(false);
+            setEditing(null);
+          }}
+        />
+      </Modal>
+    </div>
+  );
 }
+
+export default Dashboard;
