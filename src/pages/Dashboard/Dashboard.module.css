@@ -1,80 +1,81 @@
-.container {
-  padding: 40px 32px;
+.layout {
+  display: flex;
+  min-height: calc(100vh - 70px);
+}
+.main {
+  flex: 1;
+  padding: 30px;
+  background: #1a1a2e;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
 }
 
-.title {
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.head h1 {
   font-size: 28px;
-  margin-bottom: 24px;
+  margin: 0;
+  color: #fff;
 }
 
-.statsRow {
+.stats {
   display: flex;
-  gap: 16px;
-  margin-bottom: 32px;
-  flex-wrap: wrap;
+  gap: 15px;
 }
-
-.statCard {
-  background-color: #1e1f26;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 20px 24px;
+.stat {
   flex: 1;
-  min-width: 140px;
+  background: #252540;
+  padding: 20px;
+  border-radius: 12px;
+  border-left: 4px solid #667eea;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
-
-.statLabel {
+.stat span {
   font-size: 13px;
-  opacity: 0.7;
-  margin-bottom: 8px;
+  color: #94a3b8;
+  text-transform: uppercase;
+}
+.stat b {
+  font-size: 28px;
+  color: #fff;
 }
 
-.statValue {
-  font-size: 26px;
-  font-weight: 600;
-}
-
-.toolsRow {
+.list {
   display: flex;
-  gap: 12px;
-  margin-bottom: 24px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 15px;
 }
 
-.searchInput {
-  flex: 1;
-  min-width: 200px;
-  padding: 10px 14px;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  background: transparent;
-  color: var(--text);
-  font-size: 14px;
-}
-
-.filterSelect {
-  padding: 10px 14px;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  background: #1e1f26;
-  color: var(--text);
-  font-size: 14px;
-}
-
-.taskList {
-  border: 1px dashed var(--border);
-  border-radius: 10px;
-  padding: 40px;
+.empty {
   text-align: center;
+  padding: 60px 20px;
+  background: #252540;
+  border-radius: 12px;
+  border: 1px dashed rgba(255, 255, 255, 0.1);
 }
-
-.emptyText {
-  opacity: 0.6;
+.empty h3 {
+  color: #e2e8f0;
+  margin: 0 0 8px 0;
+}
+.empty p {
+  color: #64748b;
+  margin: 0;
   font-size: 14px;
 }
 
-@media (max-width: 600px) {
-  .statsRow {
+@media (max-width: 768px) {
+  .stats {
     flex-direction: column;
+  }
+  .head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
   }
 }
