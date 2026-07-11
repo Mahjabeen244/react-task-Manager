@@ -1,16 +1,19 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import About from "./pages/About/About";
 import Dashboard from "./pages/Dashboard/Dashboard";
-import NotFound from "./pages/NotFound/Notfound";
+import NotFound from "./pages/NotFound/NotFound";
 import Register from "./pages/Register/Register";
 
 function App() {
+  const location = useLocation();
+  const showNavbar = location.pathname !== "/";
+
   return (
     <div>
-      <Navbar />
+      {showNavbar && <Navbar />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
