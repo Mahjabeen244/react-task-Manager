@@ -1,6 +1,6 @@
 ## React Task Manager
 
-As my first major React project, I wanted to build something I would actually use every day. This is a clean, straightforward task management dashboard that focuses on smooth user experience and a premium dark UI. No backend is required—all data is saved directly in the browser using Local Storage.
+As my first major React project, I wanted to build something I would actually use every day. This is a clean, straightforward task management dashboard that focuses on smooth user experience and a premium dark UI. No backend is required all data is saved directly in the browser using Local Storage.
 
 ## Core Features
 
