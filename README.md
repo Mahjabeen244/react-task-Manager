@@ -42,3 +42,32 @@ Basicaslly I implemented:
   " npm create vite@latest react-task-manager -- --template react"
 - Then start the development server by:
   "npm run dev"
+
+## Project Structure
+
+src/
+├── assets/  
+├── components/ # Small, reusable UI pieces
+│ ├── Button/ (.jsx and module.css) # Reusable gradient/ghost buttons
+│ ├── FilterBar/ (.jsx and module.css) # Pill-shaped filters with color dots
+│ ├── Footer/ (.jsx and module.css) # Classic 3-column footer
+│ ├── Loader/ (.jsx and module.css) # Spinning loading indicator
+│ ├── Modal/ (.jsx and module.css) # Dark, sliding popup window
+│ ├── Navbar/ (.jsx and module.css) # Frosted-glass top navigation
+│ ├── SearchBar/ (.jsx and module.css) # Input with clear button
+│ ├── Sidebar/ (.jsx and module.css) # Hidden slide-out drawer menu
+│ ├── TaskCard/ (.jsx and module.css) # Individual task display block
+│ └── TaskForm/ (.jsx and module.css) # Smart form for adding/editing
+├── context/ (ToastContext.jsx and Toastmodule.css) # React Context (Global state)
+├── hooks/ (usetask.jsx) # Custom Hooks (useTasks logic)
+├── pages/ # Full-screen views
+│ ├── About/ (.jsx and module.css) # Info page
+│ ├── Dashboard/ (.jsx and module.css) # The main app workspace
+│ ├── Home/ (.jsx and module.css) # Premium landing page
+│ ├── Login/ (.jsx and module.css) # Authentication UI
+│ ├── NotFound/ (.jsx and module.css) # 404 error page
+│ └── Register/ (.jsx and module.css) # Authentication UI
+├── services/ (Taskservice.jsx ) # Local Storage function (
+├── utils/ (helper.jsx)# Helper functions (date formatting)
+├── App.jsx # Main router wrapper
+└── main.jsx # Entry point
