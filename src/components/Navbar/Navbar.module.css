@@ -27,6 +27,11 @@
   opacity: 0.8;
 }
 
+.logoIcon {
+  color: #667eea;
+  flex-shrink: 0;
+}
+
 .authLinks {
   display: flex;
   align-items: center;
