@@ -91,6 +91,7 @@ src
 ## Screenshots
 
 ![Home](./screenshots/home.png)
+![Dashboard](./screenshots/dashboard.png)
 ![Login](./screenshots/login.png)
 ![Register](./screenshots/register.png)
 ![Footer](./screenshots/footer.png)
