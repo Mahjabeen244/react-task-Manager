@@ -1,41 +1,59 @@
 .footer {
-  margin-top: 60px;
-  background: #16162a;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  width: 100%;
+  background: #0c0c1a;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
   color: #64748b;
   font-size: 14px;
+  margin-top: auto;
 }
 
-.grid {
-  max-width: 1000px;
+.content {
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 50px 30px 30px;
+  padding: 60px 40px;
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 40px;
+  grid-template-columns: 2fr 1fr 1.5fr;
+  gap: 60px;
+  align-items: flex-start;
 }
 
-.brand h3 {
-  color: #ffffff;
-  font-size: 18px;
-  margin: 0 0 15px 0;
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.logo svg {
+  color: #667eea;
 }
 
 .brand p {
   line-height: 1.7;
   margin: 0;
   max-width: 300px;
+  color: #4a5568;
 }
-
-.links h4 {
+.nav h4,
+.stack h4 {
   color: #94a3b8;
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 1px;
   margin: 0 0 20px 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.links a {
+.nav a {
   display: block;
   color: #64748b;
   text-decoration: none;
@@ -43,15 +61,59 @@
   transition: color 0.2s;
 }
 
-.links a:hover {
+.nav a:hover {
+  color: #fff;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.badge {
+  font-size: 12px;
+  font-weight: 500;
+  color: #94a3b8;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 6px 12px;
+  border-radius: 20px;
+  transition: all 0.2s;
+}
+
+.badge:hover {
+  color: #fff;
+  border-color: rgba(102, 126, 234, 0.3);
+  background: rgba(102, 126, 234, 0.1);
+}
+
+.githubLink {
+  display: inline-block;
+  margin-top: 10px;
   color: #667eea;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.githubLink:hover {
+  color: #a78bfa;
 }
 
 .bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.04);
   text-align: center;
-  padding: 20px 30px;
+  padding: 25px 40px;
   font-size: 13px;
+  color: #4a5568;
 }
 
 .bottom p {
@@ -59,12 +121,19 @@
 }
 
 @media (max-width: 768px) {
-  .grid {
+  .content {
     grid-template-columns: 1fr;
     text-align: center;
-    gap: 30px;
+    gap: 40px;
+    padding: 40px 20px;
+  }
+  .brand {
+    align-items: center;
   }
   .brand p {
     max-width: 100%;
+  }
+  .badges {
+    justify-content: center;
   }
 }

@@ -33,16 +33,29 @@ function Home() {
             Get Started
           </Link>
         </div>
-
         <div className={styles.right}>
-          <div className={styles.card}>
-            <div className={styles.mockRow}>
-              <div className={styles.mockCheck}></div>
-              <div className={styles.mockText}></div>
-              <div className={styles.mockPill}></div>
+          <div className={styles.cardStack}>
+            <div className={styles.card}>
+              <div className={styles.mockRow}>
+                <div className={styles.mockCheck}></div>
+                <div className={styles.mockText}></div>
+                <div className={`${styles.mockPill} ${styles.high}`}></div>
+              </div>
+              <div className={styles.mockLine}></div>
             </div>
-            <div className={styles.mockLine}></div>
+            <div className={styles.card}>
+              <div className={styles.mockRow}>
+                <div className={`${styles.mockCheck} ${styles.done}`}></div>
+                <div className={styles.mockText}></div>
+                <div className={`${styles.mockPill} ${styles.med}`}></div>
+              </div>
+              <div className={styles.mockLine}></div>
+              <div className={styles.progressBar}>
+                <div className={styles.progressFill}></div>
+              </div>
+            </div>
           </div>
+
           <div className={styles.glow}></div>
         </div>
       </div>
