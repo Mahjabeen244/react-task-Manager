@@ -1,95 +1,41 @@
-.hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 40px 5%;
-  background: #0f0f1a;
-  position: relative;
-  overflow: hidden;
-}
-
-.gridBg {
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(
-    rgba(255, 255, 255, 0.05) 1px,
-    transparent 1px
-  );
-  background-size: 30px 30px;
-  pointer-events: none;
-}
-
-.container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  max-width: 1000px;
-  position: relative;
-  z-index: 2;
-  align-items: center;
-}
-
-.reactLogo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: #61dafb;
-  font-size: 14px;
-  font-weight: 600;
-  opacity: 0.8;
-  margin-bottom: 10px;
-}
-
-.left {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.left h1 {
-  font-size: 3rem;
-  color: #fff;
-  line-height: 1.1;
-  font-weight: 800;
-  margin: 0;
-}
-
-.left h1 span {
-  background: linear-gradient(90deg, #667eea, #a78bfa);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.left p {
-  color: #94a3b8;
-  font-size: 16px;
-  line-height: 1.6;
-  margin: 0;
-}
-
-.btn {
-  background: linear-gradient(90deg, #667eea, #764ba2);
-  color: white;
-  padding: 14px 32px;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: 600;
-  width: fit-content;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-  transition: transform 0.2s;
-}
-
-.btn:hover {
-  transform: translateY(-2px);
-}
-
 .right {
   position: relative;
-  height: 350px;
+  height: 380px;
   display: flex;
   align-items: center;
   justify-content: center;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.right:hover .cardStack {
+  transform: rotate(0deg) scale(1.02);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.right:hover .glow {
+  width: 350px;
+  height: 350px;
+  opacity: 1;
+  transition: all 0.4s ease;
+}
+
+.cardStack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  transform: rotate(-4deg);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card {
@@ -100,9 +46,21 @@
   border-radius: 16px;
   backdrop-filter: blur(10px);
   position: relative;
-  z-index: 2;
-  transform: rotate(-3deg);
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+}
+
+.card:nth-child(1) {
+  position: relative;
+  z-index: 1;
+  transform: rotate(6deg) translateX(20px);
+  opacity: 0.7;
+  filter: blur(1px);
+}
+
+.card:nth-child(2) {
+  position: relative;
+  z-index: 2;
+  transform: rotate(-3deg) translateX(-10px);
 }
 
 .mockRow {
@@ -119,6 +77,10 @@
   background: #667eea;
 }
 
+.done {
+  background: #16a34a;
+}
+
 .mockText {
   flex: 1;
   height: 10px;
@@ -130,8 +92,14 @@
 .mockPill {
   width: 50px;
   height: 18px;
-  background: rgba(239, 68, 68, 0.2);
   border-radius: 20px;
+}
+
+.high {
+  background: rgba(239, 68, 68, 0.2);
+}
+.med {
+  background: rgba(245, 158, 11, 0.2);
 }
 
 .mockLine {
@@ -141,31 +109,32 @@
   border-radius: 4px;
 }
 
+.progressBar {
+  height: 6px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  margin-top: 15px;
+  overflow: hidden;
+}
+
+.progressFill {
+  width: 65%;
+  height: 100%;
+  background: linear-gradient(90deg, #667eea, #a78bfa);
+  border-radius: 20px;
+}
+
 .glow {
   position: absolute;
   width: 250px;
   height: 250px;
   background: radial-gradient(
     circle,
-    rgba(102, 126, 234, 0.2),
+    rgba(102, 126, 234, 0.15),
     transparent 70%
   );
   border-radius: 50%;
-}
-
-@media (max-width: 768px) {
-  .container {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-  .left {
-    align-items: center;
-  }
-  .btn {
-    width: 100%;
-    text-align: center;
-  }
-  .right {
-    display: none;
-  }
+  opacity: 0.8;
+  transition: all 0.4s ease;
 }
