@@ -3,79 +3,115 @@
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 18px;
   padding: 20px 0;
 }
+
 .filterList {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
 }
 .filterBtn {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 16px;
-  background: #252540;
-  color: #94a3b8;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
-  font-size: 13px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
+  padding: 10px 18px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 700;
   font-family: inherit;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(10px);
 }
 
 .filterBtn:hover {
-  background: #2d2d4a;
+  background: rgba(255, 255, 255, 0.15);
   color: #ffffff;
+  border-color: rgba(129, 140, 248, 0.7);
+  box-shadow: 0 6px 18px rgba(102, 126, 234, 0.35);
+  transform: translateY(-2px);
 }
+
 .active {
-  background: rgba(102, 126, 234, 0.15);
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
   color: #ffffff;
-  border-color: rgba(102, 126, 234, 0.3);
+  border-color: transparent;
+  font-weight: 800;
+  box-shadow: 0 8px 22px rgba(99, 102, 241, 0.45);
 }
+
+.active:hover {
+  background: linear-gradient(135deg, #5b5df0, #7c3aed);
+}
+
 .dot {
-  width: 8px;
-  height: 8px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
+  flex-shrink: 0;
 }
 
 .high {
   background-color: #ef4444;
+  box-shadow: 0 0 8px rgba(239, 68, 68, 0.6);
 }
 
 .medium {
   background-color: #f59e0b;
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.6);
 }
 
 .low {
   background-color: #3b82f6;
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.6);
 }
 
 .sortSelect {
+  min-width: 170px;
   padding: 10px 16px;
-  background: #252540;
-  color: #e2e8f0;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
   font-size: 14px;
+  font-weight: 600;
   font-family: inherit;
   cursor: pointer;
   outline: none;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(10px);
+}
+
+.sortSelect:hover {
+  border-color: rgba(129, 140, 248, 0.7);
+  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.3);
 }
 
 .sortSelect:focus {
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+  border-color: #818cf8;
+  box-shadow: 0 0 0 4px rgba(129, 140, 248, 0.2);
 }
+
+.sortSelect option {
+  background: #1f2937;
+  color: #ffffff;
+}
+
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
   }
+
+  .filterList {
+    justify-content: center;
+  }
+
   .sortSelect {
     width: 100%;
   }

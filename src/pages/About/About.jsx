@@ -4,12 +4,13 @@ function About() {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
+        <span className={styles.eyebrow}>Why this app exists</span>
         <h1 className={styles.title}>
           About <span className={styles.highlight}>Task Manager</span>
         </h1>
         <p className={styles.subtitle}>
           A straightforward tool to organize your daily work. No complex setups,
-          no servers—just a clean interface that saves your progress right in
+          no servers — just a clean interface that saves your progress right in
           your browser.
         </p>
 

@@ -22,6 +22,7 @@ function Dashboard() {
 
   const total = tasks.length;
   const done = tasks.filter((t) => t.status === "completed").length;
+  const pending = total - done;
 
   let visible = [...tasks];
 
@@ -54,13 +55,23 @@ function Dashboard() {
 
   return (
     <div className={s.page}>
-      <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+      <Sidebar
+        isOpen={sidebarOpen}
+        onClose={() => setSidebarOpen(false)}
+        onToggleTask={toggleTask}
+      />
+
       <div className={s.main}>
         <div className={s.head}>
-          <button className={s.menuBtn} onClick={() => setSidebarOpen(true)}>
-            ☰
-          </button>
-          <h1>Dashboard</h1>
+          <div className={s.headLeft}>
+            <button className={s.menuBtn} onClick={() => setSidebarOpen(true)}>
+              ☰
+            </button>
+            <div>
+              <h1 className={s.title}>Dashboard</h1>
+              <p className={s.subtitle}>Here's what's on your plate today</p>
+            </div>
+          </div>
           <Button variant="primary" onClick={() => setModal(true)}>
             + Add Task
           </Button>
@@ -71,27 +82,29 @@ function Dashboard() {
         ) : (
           <>
             <div className={s.stats}>
-              <div className={s.stat}>
-                <span>Total</span>
-                <b>{total}</b>
+              <div className={`${s.stat} ${s.statTotal}`}>
+                <span className={s.statLabel}>Total</span>
+                <b className={s.statValue}>{total}</b>
               </div>
-              <div className={s.stat}>
-                <span>Done</span>
-                <b>{done}</b>
+              <div className={`${s.stat} ${s.statDone}`}>
+                <span className={s.statLabel}>Done</span>
+                <b className={s.statValue}>{done}</b>
               </div>
-              <div className={s.stat}>
-                <span>Pending</span>
-                <b>{total - done}</b>
+              <div className={`${s.stat} ${s.statPending}`}>
+                <span className={s.statLabel}>Pending</span>
+                <b className={s.statValue}>{pending}</b>
               </div>
             </div>
 
-            <SearchBar value={search} onChange={setSearch} />
-            <FilterBar
-              activeFilter={filter}
-              onFilterChange={setFilter}
-              sortBy={sort}
-              onSortChange={setSort}
-            />
+            <div className={s.toolbar}>
+              <SearchBar value={search} onChange={setSearch} />
+              <FilterBar
+                activeFilter={filter}
+                onFilterChange={setFilter}
+                sortBy={sort}
+                onSortChange={setSort}
+              />
+            </div>
 
             <div className={s.list}>
               {visible.length === 0 ? (

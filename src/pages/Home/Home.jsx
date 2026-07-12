@@ -33,6 +33,7 @@ function Home() {
             Get Started
           </Link>
         </div>
+
         <div className={styles.right}>
           <div className={styles.cardStack}>
             <div className={styles.card}>
@@ -43,6 +44,7 @@ function Home() {
               </div>
               <div className={styles.mockLine}></div>
             </div>
+
             <div className={styles.card}>
               <div className={styles.mockRow}>
                 <div className={`${styles.mockCheck} ${styles.done}`}></div>

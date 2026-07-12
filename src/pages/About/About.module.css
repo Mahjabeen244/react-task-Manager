@@ -3,78 +3,112 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  background: radial-gradient(
+      circle at 20% 10%,
+      rgba(102, 126, 234, 0.16) 0%,
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 80% 30%,
+      rgba(236, 72, 153, 0.1) 0%,
+      transparent 45%
+    ),
+    linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
   padding: 60px 24px;
 }
 
 .content {
-  max-width: 750px;
+  max-width: 780px;
   text-align: center;
   width: 100%;
 }
 
-.title {
-  font-size: 34px;
-  color: #ffffff;
-  margin-bottom: 16px;
+.eyebrow {
+  display: inline-block;
+  font-size: 12px;
   font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #c4b5fd;
+  background: rgba(139, 92, 246, 0.12);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 38px;
+  color: #ffffff;
+  margin: 0 0 16px 0;
+  font-weight: 800;
+  letter-spacing: -0.5px;
 }
 
 .highlight {
-  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(90deg, #a78bfa 0%, #f472b6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .subtitle {
-  font-size: 16px;
-  color: #94a3b8;
+  font-size: 16.5px;
+  color: #cbd5e1;
   line-height: 1.7;
-  margin-bottom: 45px;
+  margin: 0 0 45px 0;
+  font-weight: 500;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
 .card {
-  background: #252540;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  padding: 25px;
-  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 26px 24px;
+  border-radius: 14px;
   text-align: left;
-  transition: transform 0.2s ease;
-}
-
-.card:nth-child(3) {
-  grid-column: 1 / -1;
-  max-width: 48%;
-  justify-self: center;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
+  border-color: rgba(167, 139, 250, 0.35);
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.18);
 }
 
 .cardNumber {
   display: block;
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 800;
-  color: #667eea;
-  margin-bottom: 12px;
-  opacity: 0.8;
+  background: linear-gradient(135deg, #818cf8, #f472b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 14px;
 }
 
 .card h3 {
-  color: #e2e8f0;
-  font-size: 16px;
-  margin-bottom: 8px;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
 }
 
 .card p {
-  color: #64748b;
+  color: #b0b8c9;
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 1.6;
+  margin: 0;
+  font-weight: 500;
+}
+
+@media (max-width: 700px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
 }

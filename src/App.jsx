@@ -1,6 +1,6 @@
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { VerificationProvider } from "./context/VerificationContext";
-import { ToastProvider } from "./context/ToastContext"; // <-- ADDED THIS
+import { ToastProvider } from "./context/ToastContext";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import Home from "./pages/Home/Home";
@@ -11,14 +11,11 @@ import NotFound from "./pages/NotFound/NotFound";
 import Register from "./pages/Register/Register";
 
 function App() {
-  const location = useLocation();
-  const isHome = location.pathname === "/";
-
   return (
     <VerificationProvider>
       <ToastProvider>
         <div className="app-layout">
-          {!isHome && <Navbar />}
+          <Navbar />
 
           <main>
             <Routes>
@@ -31,7 +28,7 @@ function App() {
             </Routes>
           </main>
 
-          {!isHome && <Footer />}
+          <Footer />
         </div>
       </ToastProvider>
     </VerificationProvider>

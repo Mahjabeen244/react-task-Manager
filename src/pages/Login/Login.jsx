@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useVerification } from "../../context/VerificationContext";
 import styles from "./Login.module.css";
 
 function Login() {
   const { verifyUser } = useVerification();
+  const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -16,8 +17,8 @@ function Login() {
 
     setTimeout(() => {
       setIsLoading(false);
-      verifyUser();
-      alert("Login clicked! (UI only)");
+      verifyUser("Mahjabeen");
+      navigate("/dashboard");
     }, 1000);
   };
 
