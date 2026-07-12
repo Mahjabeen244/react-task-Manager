@@ -91,21 +91,11 @@ src
 ## Screenshots
 
 ![Home](./screenshots/home.png)
-![Dashboard](./screenshots/dashboard.png)
+![Dashboard](./screenshots/dashboard.png.)
 ![Login](./screenshots/login.png)
 ![Register](./screenshots/register.png)
 ![Footer](./screenshots/footer.png)
 ![Sidebar](./screenshots/sidebar.png)
-
----
-
-## Future Improvements
-
-- Backend integration
-- User authentication
-- Cloud database support
-- Drag-and-drop task management
-- Theme switching (Light/Dark mode)
 
 ---
 
