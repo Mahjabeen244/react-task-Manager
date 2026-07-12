@@ -30,12 +30,11 @@
   align-items: center;
 }
 
-/* React Logo styling */
 .reactLogo {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #61dafb; /* Official React blue */
+  color: #61dafb;
   font-size: 14px;
   font-weight: 600;
   opacity: 0.8;
@@ -85,7 +84,6 @@
   transform: translateY(-2px);
 }
 
-/* Right Side Card */
 .right {
   position: relative;
   height: 350px;
@@ -107,7 +105,6 @@
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
 }
 
-/* The tiny fake task UI inside the card */
 .mockRow {
   display: flex;
   align-items: center;
